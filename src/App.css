@@ -1,38 +1,240 @@
-.App {
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 20%;
+}
+
+.header_nav {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 60px;
+  padding-right: 50px;
+}
+
+.header_nav a {
+  text-decoration: none;
+  
+  font-size: 18px;
+  line-height: 25px;
+
+  color: #2C2C2C;
+}
+
+.header_myAccount {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 15px;
+  padding-right: 50px;
+}
+
+.header_myAccount a {
+  
+  font-size: 18px;
+  line-height: 25px;
+  text-decoration: none;
+
+  color: #2C2C2C;
+}
+
+.main-page {
+  background-image: url(./assets/img/herobanner2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+
+}
+
+.main-page__titleBlock {
+  width: 80%;
+}
+
+.main-page__title {
+  font-weight: bold;
+  font-size: 84px;
+  line-height: 112px;
+  color: #2C2C2C;
+  padding: 15% 0 0 15%;
+}
+
+.main-page__btn-plan {
+  width: 200px;
+  height: 60px;
+  background: #FF715B;
+  border-color: #FF715B;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
   text-align: center;
+
+  color: #FFFFFF;
+  margin-left: 15%;
+  margin-top: 50px;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-page__search {
+
+  width:65%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+  margin: -4% 0 0 35%;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 30px 5px rgba(219, 200, 197, 0.2);
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-page__search div {
   display: flex;
   flex-direction: column;
+  width: 20%;
+  row-gap: 10px;
+}
+
+.main-page__search div > h3 {
+  font-size: 16px;
+  line-height: 19px;
+  color: #A79997;
+
+}
+
+.main-page__choice {
+  width: 100%;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+
+  color: #FF715B;
+}
+
+.main-page__search_btn-discover {
+  width: 200px;
+  height: 60px;
+  background: #FF715B;
+  border-color: #FF715B;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #FFFFFF;
+  cursor: pointer;
+
+}
+
+.blocks {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 230px;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+}
+
+.blocks__choose,
+.blocks__explore,
+.blocks__start,
+.blocks__enjoy {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 20%;
+  background: #F8F8F8;
+  padding: 15px;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+
+.blocks div:hover {
+  background: #FFFFFF;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.blocks div img {
+  width: 100px;
+  height: 100px;
+}
+
+
+.blocks__title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+
+  text-align: center;
+
+  color: #2C2C2C;
+}
+
+.blocks__desc {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+
+  text-align: center;
+
+
+  color: #A79997;
+
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .header_nav {
+      display: none;
+      grid-auto-flow: row;
   }
-  to {
-    transform: rotate(360deg);
+
+  
+}
+
+@media (max-width: 800px) {
+  .main-page__search {
+      display: grid;
+      margin: -18% 0 0 35%;
+      height: 300px;
+  }
+
+  .main-page__search div {
+      width: 100%;
+  }
+
+  .blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      row-gap: 10px;
+      padding-top: 130px;
+  }
+  .blocks div {
+      width: 80%;
+  
+  }
+
+}
+
+
+
+@media (max-width: 426px) {
+  .main-page {
+      height: 600px;
+  }
+  .main-page__search {
+      width: 100%;
+      margin: 0;
+  }
+  .main-page__title {
+      font-size: 40px;
+      line-height: 50px;
+      padding: 30% 0 0 15%;
+  }
+  .blocks {
+
+      grid-template-columns: 1fr;
+
   }
 }
