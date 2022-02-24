@@ -3,9 +3,23 @@ import map from '../../assets/img/map.png';
 import binocular from '../../assets/img/binocular.png';
 import backpack from '../../assets/img/backpack1.png';
 import ukelele from '../../assets/img/ukelele1.png';
+import destinations from '../../destinations.json';
 
 
 function Main() {
+
+    let newDestinations = [];
+    function topDestinations() {
+        destinations.forEach(element => {
+            if(newDestinations.length < 3) {
+                let randomDestinations = destinations[(Math.floor(Math.random() * (destinations.length)))]
+                newDestinations.push(randomDestinations);
+            }
+        })
+        
+        
+    }
+
     return (
     <>
         <main className='main-page'>
@@ -61,6 +75,25 @@ function Main() {
                     <p className='blocks__desc'>Lorem Ipsum is simply dummy text of the printing setting</p>
                 </div>
 
+        </section>
+        <section className="top">
+            <div className="top__inf">
+                <h2 className="top__inf_title">Top <span>Destinations</span> In The World</h2>
+                <p className="top__inf_desc">It is a long established fact that a reader will be the distracted by the readable content of a page when looking at its layout from it.</p>
+                <button className="top__inf_btn">Discover more</button>
+            </div>
+            <div className="top__destinations">
+                {topDestinations()}
+                {newDestinations.map((item, index) => {
+                return (
+                    <li key={index} className='top__destinations_dest'>
+                        <img src={item.picture} alt="#" className="dest-picture"/>
+                        <h3 className="dest-country">{item.country}</h3>
+                    </li>
+                    )
+                })}
+                
+            </div>
         </section>
       </>
     );

@@ -149,6 +149,8 @@
 
 .blocks div:hover {
   background: #FFFFFF;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+  cursor: pointer;
 }
 
 
@@ -178,6 +180,74 @@
 
   color: #A79997;
 
+}
+
+.top {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.top__inf {
+  width: 30%;
+}
+
+.top__inf_title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 65px;
+
+  color: #2C2C2C;
+}
+
+.top__inf_title span {
+  color: #FF715B;
+}
+
+.top__inf_desc {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+
+
+
+  color: #A79997;
+}
+
+.top__inf_btn {
+  width: 195px;
+  height: 64px;
+  background: #FF715B;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #FFFFFF;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.top__destinations {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  width: 60%;
+
+}
+
+.top__destinations_dest {
+  list-style-type: none;
+}
+
+
+.dest-picture {
+  width: 95%;
 }
 
 
