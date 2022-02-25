@@ -4,6 +4,11 @@ import binocular from '../../assets/img/binocular.png';
 import backpack from '../../assets/img/backpack1.png';
 import ukelele from '../../assets/img/ukelele1.png';
 import destinations from '../../destinations.json';
+import lighthouse from '../../assets/img/lighthouse1.png';
+import iconMusic from '../../assets/img/icon_music.png';
+import iconWorld from '../../assets/img/icon_world.png';
+
+
 
 
 function Main() {
@@ -51,28 +56,28 @@ function Main() {
                 <div className='blocks__choose'>
                     <img  src={map} />
                     <h4 className='blocks__title'>Choose Destination</h4>
-                    <p className='blocks__desc'>Lorem Ipsum is simply dummy text of the printing setting</p>
+                    <p className='blocks__desc'>Have a look and happy travels!</p>
                 </div>
 
 
                 <div className='blocks__explore'>
                     <img  src={binocular} />
                     <h4 className='blocks__title'>Explore The Place</h4>
-                    <p className='blocks__desc'>Lorem Ipsum is simply dummy text of the printing setting</p>
+                    <p className='blocks__desc'>To travel is to explore and experience new places, people and things</p>
                 </div>
 
 
                 <div className='blocks__start'>
                     <img  src={backpack} />
                     <h4 className='blocks__title'>Start Your Journey</h4>
-                    <p className='blocks__desc'>Lorem Ipsum is simply dummy text of the printing setting</p>
+                    <p className='blocks__desc'>Are you ready to start your journey?</p>
                 </div>
 
 
                 <div className='blocks__enjoy'>
                     <img  src={ukelele} />
                     <h4 className='blocks__title'>Let’s Enjoy</h4>
-                    <p className='blocks__desc'>Lorem Ipsum is simply dummy text of the printing setting</p>
+                    <p className='blocks__desc'>Enjoy the journey and see where it takes you.</p>
                 </div>
 
         </section>
@@ -94,6 +99,50 @@ function Main() {
                 })}
                 
             </div>
+
+        </section>
+        <section className="offering">
+        
+          <div className='offering__picture'>
+            <img className='offering__picture_lighthouse' src={lighthouse} />
+          </div>
+          <div className='offering__text'>
+            <h2 className='offering__text_title'>We Offering In Total 793 Tours Out The World</h2>
+            <div>
+              <img src={iconMusic} />
+              <h4>Best Travel Guide Always For Your Services</h4>
+            </div>
+            <div>
+              <img src={iconWorld} />
+              <h4>World Class Services Provide For You</h4>
+            </div>
+            <div>
+              <img src={iconMusic} />
+              <h4>24/7 Strong Customer Support</h4>
+            </div>
+            
+          </div>
+
+        </section>
+
+        <section className="choose-dest">
+                {topDestinations()}
+                {newDestinations.map((item, index) => {
+                return (
+                    <li key={index} className='choose-dest__dest'>
+                        <img src={item.picture} alt="#" className="choose-dest__picture"/>
+                        <div className="choose-dest__description">
+                            <h3 className="choose-dest__country">
+                                {item.country}<br />
+                                {item.hotel}
+                            </h3>
+                            <span>{item.price}$</span>
+                            <button>+</button>
+                        </div>
+
+                    </li>
+                    )
+                })}
         </section>
       </>
     );

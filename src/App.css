@@ -188,6 +188,8 @@
     margin: 0 auto;
     margin: 0 auto;
     justify-content: space-around;
+    padding-bottom: 150px;
+
 }
 
 .top__inf {
@@ -250,6 +252,57 @@
   width: 95%;
 }
 
+.dest-country {
+  text-align: center;
+}
+
+.offering {
+  
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  padding: 30px;
+  margin: 0 auto;
+  column-gap: 65px;
+  
+}
+
+.offering__picture,
+.offering__text {
+  max-width: 700px;
+  padding: 10px;
+}
+
+.offering__text_title {
+  padding-top: 40px;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 65px;
+
+  color: #2C2C2C;
+}
+
+.offering__text div {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.offering__text div h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+
+  color: #000000;
+}
+
+
+
 
 
 
@@ -285,6 +338,10 @@
   
   }
 
+  .offering {
+    flex-wrap: wrap;
+}
+
 }
 
 
@@ -306,5 +363,18 @@
 
       grid-template-columns: 1fr;
 
+  }
+
+    .offering__picture_lighthouse {
+      width: 300px;
+    }
+
+    .offering__text_title {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .offering__text div h4 {
+      font-size: 24px;
   }
 }
