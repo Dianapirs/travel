@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import map from '../../assets/img/map.png';
 import binocular from '../../assets/img/binocular.png';
 import backpack from '../../assets/img/backpack1.png';
@@ -7,6 +8,12 @@ import destinations from '../../destinations.json';
 import lighthouse from '../../assets/img/lighthouse1.png';
 import iconMusic from '../../assets/img/icon_music.png';
 import iconWorld from '../../assets/img/icon_world.png';
+import chooseQ from '../../assets/img/choose-q.png';
+import chooseC from '../../assets/img/choose-c.png';
+import googlePlay from '../../assets/img/google-play.png';
+import appleStore from '../../assets/img/apple-store.png';
+import appsImage from '../../assets/img/apps-image.png';
+
 
 
 
@@ -15,12 +22,18 @@ function Main() {
 
     let newDestinations = [];
     function topDestinations() {
-        destinations.forEach(element => {
+        while(true) {
             if(newDestinations.length < 3) {
                 let randomDestinations = destinations[(Math.floor(Math.random() * (destinations.length)))]
-                newDestinations.push(randomDestinations);
-            }
-        })
+                let resultFind = newDestinations.find((item) => {
+                    return (
+                        item.country === randomDestinations.country
+                    )
+                })
+                /*if(newDestinations.indexOf(randomDestinations) === -1) newDestinations.push(randomDestinations);*/
+                if(!resultFind) newDestinations.push(randomDestinations);
+            } else break
+        }
         
         
     }
@@ -126,23 +139,47 @@ function Main() {
         </section>
 
         <section className="choose-dest">
+            <div className="choose-dest__top">
+                <img src={chooseQ} alt='#' />
+                <h2 className="choose-dest__title">Choose Your Destination</h2>
+                <img src={chooseC} alt='#' />
+            </div>
+            <div className="choose-dest__wrapper">
                 {topDestinations()}
                 {newDestinations.map((item, index) => {
-                return (
-                    <li key={index} className='choose-dest__dest'>
-                        <img src={item.picture} alt="#" className="choose-dest__picture"/>
-                        <div className="choose-dest__description">
-                            <h3 className="choose-dest__country">
-                                {item.country}<br />
-                                {item.hotel}
-                            </h3>
-                            <span>{item.price}$</span>
-                            <button>+</button>
-                        </div>
+                    return (
+                        <li key={index} className='choose-dest__dest'>
+                            <img src={item.picture} alt="#" className="choose-dest__picture"/>
+                            <div className="choose-dest__description">
+                                <h3 className="choose-dest__country">{item.country}, {item.hotel}</h3>
+                                <div className="choose-dest__price-btn">
+                                    <span className="choose-dest__price">{item.price}$</span><br />
+                                    <button className="choose-dest__btn-add">+</button>
+                                </div>
+                            </div>
 
-                    </li>
-                    )
+                        </li>
+                        )
                 })}
+            </div>
+            <button className="choose-dest__viewAll">View All Places</button>
+                
+        </section>
+        <section className="apps">
+            <div className="apps__left-part">
+                <h3 className="apps__title">Download Now Travel Community Apps</h3>
+                <div className="apps__links">
+                    <a href='https://play.google.com/store'>
+                        <img src={googlePlay} alt='#' />
+                    </a>
+                    <a href='https://www.apple.com/ru/app-store/'>
+                        <img src={appleStore} alt='#' />
+                    </a>
+                </div>
+            </div>
+            <div className="apps__right-part">
+                <img className="apps__right-part_img" src={appsImage} alt='#' />
+            </div>
         </section>
       </>
     );
