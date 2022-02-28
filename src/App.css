@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 20%;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 .header_nav {
@@ -19,6 +26,10 @@
   line-height: 25px;
 
   color: #2C2C2C;
+}
+
+.header_nav a:hover {
+  color: #FF715B;
 }
 
 .header_myAccount {
@@ -105,6 +116,8 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
+  height: 42px;
+  padding: 0 5px;
 
   color: #FF715B;
 }
@@ -127,9 +140,11 @@
 .blocks {
   display: flex;
   justify-content: space-around;
-  padding-top: 230px;
+  padding-top: 175px;
   flex-wrap: wrap;
-  padding-bottom: 100px;
+  padding-bottom: 175px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .blocks__choose,
@@ -189,6 +204,7 @@
     margin: 0 auto;
     justify-content: space-around;
     padding-bottom: 150px;
+    align-items: center;
 
 }
 
@@ -233,27 +249,39 @@
   color: #FFFFFF;
   cursor: pointer;
   margin-top: 50px;
+  border-color: #FF715B;
 }
 
 .top__destinations {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 770px;
+  width: 100%;
+  justify-content: center;
+  
+  row-gap: 25px;
 
-  grid-template-columns: 1fr 1fr;
-  width: 60%;
 
 }
 
 .top__destinations_dest {
   list-style-type: none;
+  width: 50%;
+
 }
 
 
 .dest-picture {
   width: 95%;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 }
 
 .dest-country {
   text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 38px;
 }
 
 .offering {
@@ -272,7 +300,10 @@
 .offering__text {
   max-width: 700px;
   padding: 10px;
+  
 }
+
+
 
 .offering__text_title {
   padding-top: 40px;
@@ -284,12 +315,14 @@
 }
 
 .offering__text div {
-  padding: 10px;
+  padding: 30px;
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   column-gap: 20px;
+
 }
 
 .offering__text div h4 {
@@ -358,6 +391,11 @@
     justify-content: center;
     column-gap: 20px;
     align-items: center;
+    
+}
+
+.choose-dest__country {
+  padding: 10px;
 }
 
 .choose-dest__price {
@@ -366,6 +404,7 @@
   font-size: 18px;
   line-height: 22px;
   color: #FF715B;
+  padding: 10px 0;
 }
 
 .choose-dest__btn-add {
@@ -386,6 +425,7 @@
   width: 240px;
   height: 64px;
   background: #FF715B;
+  border-color: #FF715B;
   cursor: pointer;
   margin: 75px auto;
   display: block;
@@ -393,12 +433,13 @@
 
 .apps {
   position: relative;
+  max-width: 1680px;
   width: 80%;
   margin: 0 auto 100px auto;
   height: 394px;
   background-image: url('./assets/img/apps-bg.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 
 
 }
@@ -418,6 +459,7 @@
   line-height: 65px;
 
   color: #2C2C2C;
+  padding: 56px 0;
 }
 
 .apps__links {
@@ -428,7 +470,7 @@
 .apps__right-part {
   position: absolute;
   width: 550px;
-  right: 81px;
+  right: 110px;
   top: 4px;
 }
 
@@ -438,6 +480,100 @@
   height: 391px;
   position: absolute;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contacts__inf {
+  max-width: 450px;
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: #A79997;
+  padding: 20px 0;
+}
+
+.contacts__contacts div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 20px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: #A79997;
+  padding: 15px 0;
+}
+
+.contacts__contacts div a {
+  color: #A79997;
+  text-decoration: none;
+}
+
+.contacts__title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 26px;
+  color: #000000;
+  margin-top: 10px;
+  
+  padding: 2px;
+
+}
+
+.quickLinks__lists {
+  padding: 20px 10px 0 10px;
+  margin: 0 33px;
+}
+
+
+.quickLinks__lists a {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 42px;
+  color: #A79997;
+}
+
+.quickLinks__lists a:hover {
+  color: #FF715B;
+}
+
+.writeLetter__input {
+  background: #F8F8F8;
+  border: 1px solid #F5EBE9;
+  box-sizing: border-box;
+  width: 400px;
+  height: 60px;
+  margin: 35px 0 0 0;
+}
+
+.writeLetter__btn {
+  width: 200px;
+  height: 64px;
+  background: #FF715B;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #FFFFFF;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
 
 
 

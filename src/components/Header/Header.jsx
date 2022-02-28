@@ -5,7 +5,9 @@ import user from '../../assets/img/user.png';
 function Header() {
     return (
         <header className="header">
-            <img src={logo} alt='logo'/>
+            <Link to='/'>
+                <img src={logo} alt='logo'/>
+            </Link>
             <nav>
                     <ul className='header_nav'>
                         <Link to='/'>Home</Link>
@@ -16,7 +18,7 @@ function Header() {
             </nav>
                 <div className='header_myAccount'>
                     <img src={user} alt='user' />
-                    <Link to='/myAccount'>My account</Link>
+                    <Link to='/myAccount'>My cart</Link>
                 </div>
         </header>
     );
