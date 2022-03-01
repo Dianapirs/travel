@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import map from '../../assets/img/map.png';
 import binocular from '../../assets/img/binocular.png';
 import backpack from '../../assets/img/backpack1.png';
