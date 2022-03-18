@@ -32,14 +32,14 @@ function Footer() {
                 <h4 className="contacts__title">Quick Links</h4>
                 <ul>
                     <li className="quickLinks__lists">
-                        <Link to='aboutUs'>About Us</Link>
+                        <Link to='/about'>About Us</Link>
                     </li>
                     <li className="quickLinks__lists">
-                        <Link to='destinations'>Destinations</Link>
+                        <Link to='/destinations'>Destinations</Link>
                     </li>
                     
                     <li className="quickLinks__lists">
-                        <Link to='contactUs'>Contact Us</Link>
+                        <Link to='/contacts'>Contact Us</Link>
                     </li>
                 </ul>
             </div>

@@ -166,16 +166,18 @@
 }
 
 
-.blocks div:hover {
+.blocks a:hover  {
   background: #FFFFFF;
   box-shadow: 0 0 10px rgb(0 0 0 / 50%);
   cursor: pointer;
 }
 
 
-.blocks div img {
+.blocks a div img {
   width: 100px;
   height: 100px;
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -496,7 +498,7 @@
   display: flex;
   justify-content: space-around;
   width: 80%;
-  margin: 0 auto;
+  margin: 50px auto;
   max-width: 2500px;
 }
 
@@ -584,6 +586,35 @@
   color: #FFFFFF;
   cursor: pointer;
   margin-top: 15px;
+}
+
+.pageTitle {
+  text-align: center;
+  background: #ffffff;
+  padding: 25px 0;
+  box-shadow: 0px 10px 30px 5px rgb(99, 95, 95);
+  color: #2C2C2C;
+}
+
+.pageImageWrapper {
+  margin: 40px auto;
+}
+
+.pageImage {
+  width: 55%;
+  height: 30%;
+  display: block;
+  margin: 0 auto;
+}
+
+.pageContent {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  font-style: oblique;
+  font-size: 30px;
+  padding: 50px 0;
+
 }
 
 
@@ -733,6 +764,10 @@
     width: 80%;
     margin: 0 auto 10px auto;
   }
+  .pageImage {
+    width: 75%;
+    height: 50%;
+  }
 
 }
 
@@ -793,7 +828,7 @@
   }
 
   .apps__left-part {
-    width: 100%;
+    width: 90%;
 
   }
 
@@ -807,6 +842,19 @@
 
   .writeLetter__input {
     width: 160%;
+  }
+
+  .pageTitle {
+    font-size: 25px;
+  }
+  .pageContent {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    font-style: oblique;
+    font-size: 20px;
+    padding: 50px 0;
+  
   }
 }
 

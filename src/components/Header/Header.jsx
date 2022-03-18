@@ -14,7 +14,7 @@ function Header() {
                         <Link to='/'>Home</Link>
                         <Link to='/destination'>Destination</Link>
                         <Link to='/offer'>Offer</Link>
-                        <Link to='/blog'>Blog</Link>
+                        <Link to='/contacts'>Contacts</Link>
                     </ul>
             </nav>
                 <div className='header_myAccount'>
