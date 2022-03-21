@@ -35,7 +35,7 @@ function Footer() {
                         <Link to='/about'>About Us</Link>
                     </li>
                     <li className="quickLinks__lists">
-                        <Link to='/destinations'>Destinations</Link>
+                        <Link to='/destination'>Destinations</Link>
                     </li>
                     
                     <li className="quickLinks__lists">
