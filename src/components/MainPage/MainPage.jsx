@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import map from '../../assets/img/map.png';
 import binocular from '../../assets/img/binocular.png';
 import backpack from '../../assets/img/backpack1.png';
@@ -13,12 +13,16 @@ import googlePlay from '../../assets/img/google-play.png';
 import appleStore from '../../assets/img/apple-store.png';
 import appsImage from '../../assets/img/apps-image.png';
 import { Link } from "react-router-dom";
+import countries from '../../countries.json';
+import { AppContext } from "../../App";
 
 
 
 
 
 function Main() {
+
+    const {searchData, setSearchData, cart, setCart} = useContext(AppContext);
 
     let newDestinations = [];
     function topDestinations() {
@@ -38,31 +42,50 @@ function Main() {
         
     }
 
+    function search (){
+        let arr = [];
+        let maxPriceValue = document.getElementById('maxPrice').value;
+        let countryValue = document.getElementById('country').value;
+        destinations.map(item => {
+            if(item.country === countryValue && item.price <= maxPriceValue) arr.push(item);
+            });
+        setSearchData([...arr]);
+        localStorage.setItem('searchData', JSON.stringify(arr));
+    };
+
+
+
     return (
     <>
         <main className='main-page'>
             <div className='main-page__titleBlock'>
                 <h1 className='main-page__title'>It’s Time To<br /> Explore The World</h1>
             </div>
-            <button className='main-page__btn-plan'>Plan Your Trip</button>
+            <Link to='/destination'>
+                <button className='main-page__btn-plan'>Plan Your Trip</button>
+            </Link>
             
         </main>
         <form className='main-page__search'>
             <div className='main-page__country'>
                 <h3>Destinations</h3>
-                <select className='main-page__choice'>
-                    <option>First country</option>
+                <select id='country' className='main-page__choice'>
+                    {countries.map((item, index) => {
+                        return (
+                            <option className="choice__country" key={index}>{item.country}</option>
+                        )
+                    })}
+                    
                 </select>
             </div>
-            <div className='main-page__search_data'>
-                <h3>Check in</h3>
-                <input className='main-page__choice' type='date' />
-            </div>
+            
             <div className='main-page__search_price'>
                 <h3>Max Price($)</h3>
-                <input placeholder='100' className='main-page__choice' type='number' min='100' />
+                <input id='maxPrice' placeholder='100' className='main-page__choice' type='number' defaultValue='' min='100' />
             </div>
-            <button className='main-page__search_btn-discover'>Discover Now</button>
+            <Link to='/search'>
+                <button onClick={() => search()} className='main-page__search_btn-discover'>Discover Now</button>
+            </Link>
         </form>
         <section className='blocks'>
 
@@ -106,7 +129,9 @@ function Main() {
             <div className="top__inf">
                 <h2 className="top__inf_title">Top <span>Destinations</span> In The World</h2>
                 <p className="top__inf_desc">It is a long established fact that a reader will be the distracted by the readable content of a page when looking at its layout from it.</p>
-                <button className="top__inf_btn">Discover more</button>
+                <Link to='/explore'>
+                    <button className="top__inf_btn">Discover more</button>
+                </Link>
             </div>
             <div className="top__destinations">
                 {topDestinations()}
@@ -170,7 +195,9 @@ function Main() {
                         )
                 })}
             </div>
-            <button className="choose-dest__viewAll">View All Places</button>
+            <Link className="choose-dest__btn-link" to='/destination'>
+                <button className="choose-dest__viewAll">View All Places</button>
+            </Link>
                 
         </section>
         <section className="apps">
