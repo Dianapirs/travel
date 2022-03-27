@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import Slider from "react-slick";
 import destinations from  "../../destinations.json";
 import "../../App.css";
+
 
 
 export default class LazyLoad extends Component {

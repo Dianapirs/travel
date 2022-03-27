@@ -22,7 +22,7 @@ import { AppContext } from "../../App";
 
 function Main() {
 
-    const {searchData, setSearchData, cart, setCart} = useContext(AppContext);
+    const {setSearchData, addDest} = useContext(AppContext);
 
     let newDestinations = [];
     function topDestinations() {
@@ -187,7 +187,7 @@ function Main() {
                                 <h3 className="choose-dest__country">{item.country}, {item.hotel}</h3>
                                 <div className="choose-dest__price-btn">
                                     <span className="choose-dest__price">{item.price}$</span><br />
-                                    <button className="choose-dest__btn-add">+</button>
+                                    <button onClick={() => addDest(item)} className="choose-dest__btn-add">+</button>
                                 </div>
                             </div>
 
