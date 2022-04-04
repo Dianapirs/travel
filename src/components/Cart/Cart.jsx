@@ -1,14 +1,15 @@
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../App";
 import "../../App.css";
 
 function Cart() {  
     const { setCart} = useContext(AppContext);
+    const [cartTotal, setCartTotal] = useState(0);
+
+
 
     let cartData = localStorage.getItem('cartData');
-
-
     if(cartData && cartData.length > 2) {
         cartData = JSON.parse(cartData);
     } else {
@@ -17,6 +18,30 @@ function Cart() {
         )
     }
 
+
+    /*useEffect(() => {
+        let cartData = localStorage.getItem('cartData');
+        if(cartData && cartData.length > 2) {
+            cartData = JSON.parse(cartData);
+        }
+        if(cartData.length > 2) {
+            let totalPrice = 0;
+            cartData.forEach(dest => {
+                totalPrice = totalPrice + dest.price;
+            })
+        
+           setCartTotal(totalPrice);
+        } 
+    
+    })*/
+
+    
+
+
+    
+    
+
+    
     function removeDest(item) {
         let arr = [];
        
@@ -52,6 +77,7 @@ function Cart() {
                 
             })}
         </ul>
+        <div className="total-price">Total Price: ${cartTotal}</div>
             
         </div>
     );

@@ -1,12 +1,17 @@
-import React, { Component, useContext } from "react";
+
+import React, { Component } from "react";
 import Slider from "react-slick";
 import destinations from  "../../destinations.json";
 import "../../App.css";
-
+//import { AppContext } from "../../App";
 
 
 export default class LazyLoad extends Component {
+  //static contextType = AppContext
+
   render() {
+    
+
     const settings = {
       dots: true,
       lazyLoad: true,
@@ -16,6 +21,7 @@ export default class LazyLoad extends Component {
       slidesToScroll: 1,
       initialSlide: 2
     };
+
 
 
     return (
@@ -46,4 +52,8 @@ export default class LazyLoad extends Component {
       </div>
     );
   }
+  
 }
+
+
+
