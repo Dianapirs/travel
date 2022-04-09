@@ -4,64 +4,53 @@ import { AppContext } from "../../App";
 import "../../App.css";
 
 function Cart() {  
-    const { setCart} = useContext(AppContext);
+    const { cart, setCart} = useContext(AppContext);
     const [cartTotal, setCartTotal] = useState(0);
+    const [cartData, setCartData] = useState([]);
+
+    let totalPrice = 0;
+    useEffect(() => {
+        let cartDataTmp = localStorage.getItem('cartData');
+
+        if(cartDataTmp && cartDataTmp.length > 2) {
+            cartDataTmp = JSON.parse(cartDataTmp);
 
 
 
-    let cartData = localStorage.getItem('cartData');
-    if(cartData && cartData.length > 2) {
-        cartData = JSON.parse(cartData);
-    } else {
-        return (
-            <h1 className="noResults">No results</h1>
-        )
-    }
-
-
-    /*useEffect(() => {
-        let cartData = localStorage.getItem('cartData');
-        if(cartData && cartData.length > 2) {
-            cartData = JSON.parse(cartData);
-        }
-        if(cartData.length > 2) {
-            let totalPrice = 0;
-            cartData.forEach(dest => {
+            cartDataTmp.forEach(dest => {
                 totalPrice = totalPrice + dest.price;
             })
-        
-           setCartTotal(totalPrice);
-        } 
-    
-    })*/
 
-    
-
-
-    
-    
+            setCartTotal(totalPrice);
+            setCartData([...cartDataTmp]);
+        }
+ 
+    }, [setCart, cart]);
 
     
     function removeDest(item) {
+        let cartDataTMP = localStorage.getItem('cartData');
+        if(cartDataTMP && cartData.length > 0) {
+            cartDataTMP = JSON.parse(cartDataTMP);
+        }
+
         let arr = [];
        
-        arr = cartData.filter(i => {
+        arr = cartDataTMP.filter(i => {
             return i.id !== item.id;
         });
-        setCart([...arr]);
 
-        
+        setCart([...arr]);
+        setCartData([...arr]);
+
         localStorage.setItem('cartData', JSON.stringify(arr));
     }
-
-    
-
 
     return (
         <div className="cart">
             <h1 className="pageTitle">My Destinations</h1>
             <ul>
-            {cartData.map((item, index) => {
+            {(cartData && cartData.length > 0) ? cartData.map((item, index) => {
                 return (
                     <li className='countries__list' key={index}>
                         <img className="countries__image" src={item.picture} alt="#" />
@@ -75,9 +64,9 @@ function Cart() {
                     </li>
                 )
                 
-            })}
+            }) : <h1 className="noResults">No results</h1>}
         </ul>
-        <div className="total-price">Total Price: ${cartTotal}</div>
+        {(cartData && cartData.length > 0) ? <div className="total-price">Total Price: ${cartTotal}</div> : ''}
             
         </div>
     );

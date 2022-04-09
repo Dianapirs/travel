@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import Pages from './components/Pages/Pages';
 import Destination from './components/Destination/Destination';
 import Countries from './components/Countries/Countries';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchResult from './components/SearchResult/Searchresult';
 import Cart from './components/Cart/Cart';
 
@@ -32,8 +32,13 @@ function App() {
 
   const addDest = (item) => {
     let cartArr = cart;
-    if (cartArr.indexOf(item.id) === -1) cartArr.push(item);
-    else cartArr = cartArr.filter(i => i.id !== item.id);
+
+
+    let a = null;
+
+    a = cartArr.find(i => i.id === item.id);
+
+    if (!a) cartArr.push(item);
     
     setCart([...cartArr]);
     localStorage.setItem('cartData', JSON.stringify(cart));

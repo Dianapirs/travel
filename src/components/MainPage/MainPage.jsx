@@ -180,6 +180,14 @@ function Main() {
             <div className="choose-dest__wrapper">
                 {topDestinations()}
                 {newDestinations.map((item, index) => {
+                    let cartData = localStorage.getItem('cartData');
+                    cartData = JSON.parse(cartData);
+        
+                    if (!cartData || cartData.length === 0) cartData = [];
+        
+                    let a = null;
+                    a = cartData.find(i => i.id === item.id);
+        
                     return (
                         <li key={index} className='choose-dest__dest'>
                             <img src={item.picture} alt="#" className="choose-dest__picture"/>
@@ -187,7 +195,7 @@ function Main() {
                                 <h3 className="choose-dest__country">{item.country}, {item.hotel}</h3>
                                 <div className="choose-dest__price-btn">
                                     <span className="choose-dest__price">{item.price}$</span><br />
-                                    <button onClick={() => addDest(item)} className="choose-dest__btn-add">+</button>
+                                    {!a ? <button className="choose-dest__btn-add" onClick={() => addDest(item)}>+</button> : ''}
                                 </div>
                             </div>
 
