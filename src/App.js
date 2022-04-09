@@ -20,8 +20,6 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   const [cart, setCart] = useState([]);
 
-  
-
   useEffect(() => {
 
 		if (cart.length === 0) {
@@ -34,9 +32,7 @@ function App() {
   const addDest = (item) => {
     let cartArr = cart;
 
-
     let a = null;
-
     a = cartArr.find(i => i.id === item.id);
 
     if (!a) cartArr.push(item);
@@ -45,6 +41,7 @@ function App() {
     localStorage.setItem('cartData', JSON.stringify(cart));
     
   }
+
   return (
     <div className="App" id="outer-container">
       <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
@@ -55,15 +52,13 @@ function App() {
             <Header />
         
             <Routes>
-              <Route path='/' element={<Main />}></Route>
-              
+              <Route path='/' element={<Main />}></Route>  
               <Route path='/destination' element={<Destination />}></Route>
               <Route path='/:slug/' element={<Pages />}></Route>
               <Route path='/explore' element={<Countries />}></Route>
               <Route path='/search' element={<SearchResult />}></Route>
               <Route path='/myAccount' element={<Cart cart={cart} setCart={setCart} /> }></Route>
               
-              {/* <Route path='/destination/:city' element={<DestinationPage />}></Route> */}
             </Routes>
         
             <Footer />
@@ -82,7 +77,3 @@ function App() {
 export default App;
 
 
-//сделать невозможным повторное нажатие на добавление тура
-//добавление в корзину только одного экземпляра объекта
-// добавление в корзину из Destination
-// Подсчет общей стоимости после return

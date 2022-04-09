@@ -1,11 +1,7 @@
-
 import countries from '../../countries.json';
 import "../../App.css";
 
 function Countries() {
-
-    
-    
 
     return (
         <div className='countries'>

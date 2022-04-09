@@ -16,10 +16,6 @@ import { Link } from "react-router-dom";
 import countries from '../../countries.json';
 import { AppContext } from "../../App";
 
-
-
-
-
 function Main() {
 
     const {setSearchData, addDest} = useContext(AppContext);
@@ -34,12 +30,9 @@ function Main() {
                         item.country === randomDestinations.country
                     )
                 })
-                /*if(newDestinations.indexOf(randomDestinations) === -1) newDestinations.push(randomDestinations);*/
                 if(!resultFind) newDestinations.push(randomDestinations);
             } else break
-        }
-        
-        
+        } 
     }
 
     function search (){
@@ -53,8 +46,6 @@ function Main() {
         localStorage.setItem('searchData', JSON.stringify(arr));
     };
 
-
-
     return (
     <>
         <main className='main-page'>
@@ -64,7 +55,6 @@ function Main() {
             <Link to='/destination'>
                 <button className='main-page__btn-plan'>Plan Your Trip</button>
             </Link>
-            
         </main>
         <form className='main-page__search'>
             <div className='main-page__country'>
@@ -75,7 +65,6 @@ function Main() {
                             <option className="choice__country" key={index}>{item.country}</option>
                         )
                     })}
-                    
                 </select>
             </div>
             
@@ -97,7 +86,6 @@ function Main() {
                 </div>
                 </Link>
 
-
                 <Link className='blocks__explore' to='/explore'>
                     <div >
                         <img  src={binocular} />
@@ -106,7 +94,6 @@ function Main() {
                     </div>
                 </Link>
 
-
                 <Link className='blocks__start' to='/start'>
                     <div >
                         <img  src={backpack} />
@@ -114,7 +101,6 @@ function Main() {
                         <p className='blocks__desc'>Are you ready to start your journey?</p>
                     </div>
                 </Link>
-
 
                 <Link className='blocks__enjoy' to='/enjoy'>
                     <div>

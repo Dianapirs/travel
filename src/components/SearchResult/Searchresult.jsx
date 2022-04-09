@@ -43,9 +43,7 @@ function SearchResult() {
                 
             })}
         </ul>
-        
-        </>
-        
+        </>        
     );
   }
   export default SearchResult;
